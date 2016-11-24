@@ -1,5 +1,8 @@
 {% extends "layout.twig" %}
 
 {% block content %}
+    <form action="{{ path_for('test') }}" method="post">
+        <input type="submit" value="go">
+    </form>
     <h1>Bienvenue</h1>
 {% endblock %}

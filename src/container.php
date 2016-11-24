@@ -3,13 +3,20 @@ $container = $app->getContainer();
 
 /**
  * Définit si l'app est en mode debug ou non
- * @param $container
  * @return bool
  */
-$container['debug'] = function ($container){
+$container['debug'] = function (){
     return true;
 };
 
+/**
+ * Retourne l'element CSRF et initialise la page d'erreur
+ * @param $container
+ * @return \Slim\Csrf\Guard
+ */
+$container['csrf'] = function () {
+    return new \Slim\Csrf\Guard;
+};
 
 /**
  * Retourne l'élément Twig pour le render
@@ -24,6 +31,8 @@ $container['view'] = function ($container) {
 
     $basePath = rtrim(str_ireplace('index.php', '', $container['request']->getUri()->getBasePath()), '/');
     $view->addExtension(new Slim\Views\TwigExtension($container['router'], $basePath));
+    $view->addExtension(new Twig_Extension_Debug());
+
 
     return $view;
 };
