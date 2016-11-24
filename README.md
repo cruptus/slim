@@ -15,3 +15,10 @@ composer install
 ```
 
 > ATTENTION : Le serveur web doit pointer sur le dossier public
+
+## Fonctionnalité 
+
+- Routing
+- Controllers
+- Système de rendu avec Twig
+- Erreur 404 
