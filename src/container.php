@@ -12,7 +12,6 @@ $container['view'] = function ($container) {
         'cache' => ($container->debug) ? false : $dir.'/tmp/cache'
     ]);
 
-    // Instantiate and add Slim specific extension
     $basePath = rtrim(str_ireplace('index.php', '', $container['request']->getUri()->getBasePath()), '/');
     $view->addExtension(new Slim\Views\TwigExtension($container['router'], $basePath));
 

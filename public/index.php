@@ -8,5 +8,8 @@ $app = new Slim\App([
     ]
 ]);
 
+require "../src/container.php";
+
+$app->get("/", \App\Controllers\DefaultController::class.':index');
 
 $app->run();

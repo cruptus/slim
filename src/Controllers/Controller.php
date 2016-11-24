@@ -2,11 +2,18 @@
 
 namespace App\Controllers;
 
+use Slim\Http\Response;
+
 class Controller
 {
 
-    public function __construct()
-    {
+    private $container;
 
+    public function __construct($container){
+        $this->container = $container;
+    }
+
+    public function render(Response $response, $file){
+        $this->container->view->render($response, $file);
     }
 }
