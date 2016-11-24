@@ -24,6 +24,13 @@ class CsrfMiddleware {
         $this->csrf = $csrf;
     }
 
+    /**
+     * Ajout de la fonction csrf()
+     * @param Request $request
+     * @param Response $response
+     * @param $next
+     * @return mixed
+     */
     public function __invoke(Request $request, Response $response, $next)
     {
         $csrf = $this->csrf;

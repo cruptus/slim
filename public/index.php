@@ -17,9 +17,9 @@ $container = $app->getContainer();
 
 
 // CSRF
-$app->add(new \App\Middlewares\CsrfMiddleware($container->view->getEnvironment(), $container->csrf));
-
 $guard = new \Slim\Csrf\Guard();
+$app->add(new \App\Middlewares\CsrfMiddleware($container->view->getEnvironment(), $container->csrf));
+// Ajout de la page d'erreur CSRF
 $guard->setFailureCallable(function($request, \Slim\Http\Response $response, $next) use ($container){
     $response->write($container->view->getEnvironment()->render("errors/csrf.twig"));
     $response = $response->withStatus(400);
