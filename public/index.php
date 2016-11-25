@@ -4,9 +4,20 @@ require "../vendor/autoload.php";
 
 $app = new Slim\App([
     'settings' => [
-        'displayErrorDetails' => true
+        'displayErrorDetails' => true,
+        'db' => [
+            'driver' => 'mysql',
+            'host' => 'localhost',
+            'database' => 'database',
+            'username' => 'username',
+            'password' => 'password',
+            'charset'   => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix'    => '',
+        ]
     ]
 ]);
+
 
 /**
  * Ajout des containers
@@ -14,6 +25,11 @@ $app = new Slim\App([
 require "../src/container.php";
 
 $container = $app->getContainer();
+
+// Database
+$capsule = new Illuminate\Database\Capsule\Manager;
+$capsule->addConnection($container->get('settings')['db']);
+$capsule->bootEloquent();
 
 
 // CSRF
