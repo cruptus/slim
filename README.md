@@ -24,6 +24,7 @@ composer install
 - Erreur 404 
 - CSRF
 - Database
+- Fichier de configuration
 
 ## Helper
 
