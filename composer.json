@@ -1,15 +1,29 @@
 {
     "name": "cruptus/slim",
+    "description": "Custom Slim 3 Framework",
     "authors": [
         {
             "name": "Jeremie Elbaz",
             "email": "jeremie-e@hotmail.fr"
         }
     ],
+    "homepage" : "https://github.com/cruptus/slim",
+    "keyword":[
+        "slim",
+        "framework",
+        "model",
+        "controller",
+        "views",
+        "validation",
+        "database"
+    ],
     "autoload":{
         "psr-4": {
             "App\\": "src/"
         }
+    },
+    "support": {
+        "source": "https://github.com/cruptus/slim.git"
     },
     "require": {
         "slim/slim": "^3.6",

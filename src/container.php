@@ -68,6 +68,9 @@ $guard->setFailureCallable(function($request, \Slim\Http\Response $response, $ne
 });
 $app->add($guard);
 
+/**
+ * Affiche la debugbar en mode development
+ */
 if($config['environment'] == 'development') {
     $provider = new Kitchenu\Debugbar\ServiceProvider();
     $provider->register($app);
