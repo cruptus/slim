@@ -7,6 +7,7 @@
             "email": "jeremie-e@hotmail.fr"
         }
     ],
+    "type": "project",
     "license": "MIT",
     "homepage" : "https://github.com/cruptus/slim",
     "keyword":[
