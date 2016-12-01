@@ -25,6 +25,7 @@ composer install
 - CSRF
 - Database
 - Fichier de configuration
+- Validation / Model
 
 ## Documentation
 
