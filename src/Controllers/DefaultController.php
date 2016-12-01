@@ -14,8 +14,7 @@ class DefaultController extends Controller{
      * @param Response $response
      */
     public function index(Request $request, Response $response){
-        $user = User::all()->first();
-        echo $user->name;
+
         $this->render($response, "default/index.twig");
     }
 }

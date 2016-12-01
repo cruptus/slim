@@ -26,8 +26,9 @@ composer install
 - Database
 - Fichier de configuration
 
-## Helper
+## Documentation
 
+### Model
 Pour redefinir les fields dans les models (exemple : Attribut name)
 ```php 
 class User extends Model {
@@ -41,3 +42,24 @@ echo $user->name; // Le nom sera en majuscule
 ```
 
 Pour plus d'information : [Laravel Eloquent](https://laravel.com/docs/5.3/eloquent-mutators "Lien de laravel eloquent")
+
+### Validation
+Vérifier si un utilisateur est valid 
+```php
+class User extends Model {
+    protected $fillable = ['name'];
+    
+    public function rules()
+    {
+        $this->validator = v::attribute('name', v::stringType()->length(6,32));
+    }
+}    
+$user = new User(['name' = 'toto']);
+$user->isValid(); // return false
+
+$user = new User(['name' = 'tototo']);
+$user->isValid(); // return true
+```
+
+Pour plus d'information : [Respect/Validation](https://github.com/Respect/Validation)
+
