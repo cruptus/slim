@@ -14,7 +14,6 @@ class DefaultController extends Controller{
      * @param Response $response
      */
     public function index(Request $request, Response $response){
-
         $this->render($response, "default/index.twig");
     }
 }

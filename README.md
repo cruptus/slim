@@ -26,6 +26,7 @@ composer install
 - Database
 - Fichier de configuration
 - Validation / Model
+- Debug bar (Seulement en mode developpement)
 
 ## Documentation
 

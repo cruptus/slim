@@ -55,7 +55,6 @@ $capsule = new Illuminate\Database\Capsule\Manager;
 $capsule->addConnection($container->get('settings')['db']);
 $capsule->bootEloquent();
 
-
 /**
  * Contrer les failles CSRF
  */
@@ -68,3 +67,10 @@ $guard->setFailureCallable(function($request, \Slim\Http\Response $response, $ne
     return $response;
 });
 $app->add($guard);
+
+if($config['environment'] == 'development') {
+    $provider = new Kitchenu\Debugbar\ServiceProvider();
+    $provider->register($app);
+    $debugbar = $app->getContainer()->get('debugbar');
+    $debugbar->addCollector(new \DebugBar\DataCollector\PDO\PDOCollector(new DebugBar\DataCollector\PDO\TraceablePDO($capsule->getConnection('default')->getPdo())));
+}
