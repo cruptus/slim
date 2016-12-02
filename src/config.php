@@ -41,6 +41,18 @@ $config = [
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
         ]
+    ],
+
+    /**
+     * Configuration de la session
+     * name : Nom de la session cookie
+     * lifetime : default '1 hour'
+     * autorefresh : Refresh la session automatiquement quand l'utilisateur est actif
+     */
+    'session' => [
+        'name' => 'slim_session',
+        'autorefresh' => true,
+        'lifetime' => '1 hour'
     ]
 ];
 
@@ -50,6 +62,7 @@ $config = [
 $settings = [
     'settings' => [
         'displayErrorDetails' => ($config['environment'] != 'production')? true : false,
-        'db' => $config['db'][$config['environment']]
+        'db' => $config['db'][$config['environment']],
+        'session_settings' => $config['session']
     ]
 ];

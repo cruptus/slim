@@ -11,7 +11,6 @@ $container['debug'] = function (){
 
 /**
  * Retourne l'element CSRF et initialise la page d'erreur
- * @param $container
  * @return \Slim\Csrf\Guard
  */
 $container['csrf'] = function () {
@@ -67,6 +66,19 @@ $guard->setFailureCallable(function($request, \Slim\Http\Response $response, $ne
     return $response;
 });
 $app->add($guard);
+
+/**
+ * Ajout du middleware de la session
+ */
+$app->add(new \Slim\Middleware\Session($container->get('settings')['session_settings']));
+
+/**
+ * Retourne l'objet session
+ * @return \SlimSession\Helper
+ */
+$container['session'] = function () {
+    return new \SlimSession\Helper;
+};
 
 /**
  * Affiche la debugbar en mode development

@@ -7,7 +7,7 @@ use Slim\Http\Response;
 class Controller
 {
 
-    private $container;
+    protected $container;
 
     public function __construct($container){
         $this->container = $container;
@@ -20,5 +20,13 @@ class Controller
      */
     public function render(Response $response, $file){
         $this->container->view->render($response, $file);
+    }
+
+    /**
+     * Retourne l'objet session
+     * @return \SlimSession\Helper
+     */
+    public function session(){
+        return $this->container->session;
     }
 }

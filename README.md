@@ -27,6 +27,7 @@ composer install
 - Fichier de configuration
 - Validation / Model
 - Debug bar (Seulement en mode developpement)
+- Session
 
 ## Documentation
 
